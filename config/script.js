@@ -1,38 +1,9 @@
-//Cartas
-
-var cartaMasterYi = {
-    nome:"Master yi",
-    atributos: {
-        ataque:75,
-        defesa:50,
-        magia:0
-
-    }
-}
-
-var cartaEkko = {
-    nome:"Ekko",
-    atributos: {     
-        ataque:55,
-        defesa:20,
-        magia:65
-    }
-}
-
-var cartaOlaf = {
-    nome:"Olaf",
-    atributos: {
-        ataque:95,
-        defesa:80,
-        magia:0
-    }
-}
 
 //variaveis
 
 var cartaMaquina
 var cartaJogador
-var cartas = [cartaMasterYi, cartaEkko, cartaOlaf]
+var cartas = [cartaMasterYi, cartaEkko, cartaGaren, cartaMissFortune]
               //0            1          2
 
 //Funçao sortear carta 
@@ -55,20 +26,29 @@ function sortearCarta(){
     document.getElementById('btnSortear').disabled = true
     document.getElementById('btnJogar').disabled = false
 
-    exibirOpcoes()
+    exibeCartaJogador()
+
 }
 
+function exibeCartaJogador(){
+    var divCartaJogador = document.getElementById("carta-jogador")
+    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">';
 
-//funçao exibir opçoes
+    divCartaJogador.style.backgroundImage= `url(${cartaJogador.imagem})`
 
-function exibirOpcoes(){
-    var opcoes = document.getElementById('opcoes')
+    var nome = `<p class="carta-subtitle">${cartaJogador.nome}</p>`
     var opcoesTexto = ""
+
     for(var atributo in cartaJogador.atributos){
-        opcoesTexto += "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo
+        opcoesTexto += "<input type='radio' name='atributo' value='" + atributo + "'>" + atributo + " " + cartaJogador.atributos[atributo] + "<br>"
     }
-    opcoes.innerHTML = opcoesTexto
+
+    var html = "<div id='opcoes' class='carta-status'>"
+
+    divCartaJogador.innerHTML = moldura+nome+html+opcoesTexto+'</div>'
 }
+
+
 
 //Funçao Obtem atributo selecionado
  
@@ -84,16 +64,36 @@ function obtemAtributoSelecionado(){
 //funçao jogar
 
 function jogar(){
+    var divResultado = document.getElementById("resultado")
     var atributoSelecionado = obtemAtributoSelecionado()
     
    if(cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]){
-    alert("Você ganhou da maquina, parabens!")
+    htmlResultado = `<p class="resultado-final"> Você ganhou, parabens </p>`
    }else if(cartaJogador.atributos[atributoSelecionado] < cartaMaquina.atributos[atributoSelecionado]){
-    alert("Você perdeu!")
+    htmlResultado = `<p class="resultado-final"> Você perdeu, mais sorte na proxima. </p>`
    }else{
-       alert("Empatou")
+    htmlResultado = `<p class="resultado-final"> Empatou, tente novamente </p>`
    }
 
-   console.log(cartaMaquina)
+   divResultado.innerHTML = htmlResultado
 
+   exibeCartaMaquina()
+}
+
+function exibeCartaMaquina(){
+    var divCartaMaquina = document.getElementById("carta-maquina")
+    var moldura = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent.png" style=" width: inherit; height: inherit; position: absolute;">';
+
+    divCartaMaquina.style.backgroundImage= `url(${cartaMaquina.imagem})`
+
+    var nome = `<p class="carta-subtitle">${cartaMaquina.nome}</p>`
+    var opcoesTexto = ""
+
+    for(var atributo in cartaMaquina.atributos){
+        opcoesTexto += "<p type='texto' name='atributo' value='" + atributo + "'>" + atributo + " " + cartaMaquina.atributos[atributo] + "<br>"
+    }
+
+    var html = "<div id='opcoes' class='carta-status'>"
+
+    divCartaMaquina.innerHTML = moldura+nome+html+opcoesTexto+'</div>'
 }
