@@ -39,7 +39,7 @@ var cartas = [cartaMasterYi, cartaEkko, cartaOlaf]
 
 function sortearCarta(){
     var numeroCartaMaquina = parseInt(Math.random() * 3)
-    var cartaMaquina = cartas[numeroCartaMaquina]
+    cartaMaquina = cartas[numeroCartaMaquina]
 
     var numeroCartaJogador = parseInt(Math.random() * 3)
 
@@ -83,7 +83,7 @@ function obtemAtributoSelecionado(){
 
 //funçao jogar
 
-function jogar() {
+function jogar(){
     var atributoSelecionado = obtemAtributoSelecionado()
     
    if(cartaJogador.atributos[atributoSelecionado] > cartaMaquina.atributos[atributoSelecionado]){
