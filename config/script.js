@@ -1,3 +1,44 @@
+cartaThresh = {
+    nome:"Thresh",
+    imagem:"https://th.bing.com/th/id/OIP.d3kRLsvSydSZpc339Q9PrgHaEX?w=264&h=180&c=7&o=5&pid=1.7",
+    atributos: {
+        Attack:60,
+        Armor:75,
+        AttackSpeed:20
+    }
+
+}
+
+cartaWukong = {
+    nome:"Wukong",
+    imagem: "https://th.bing.com/th/id/OIP.r_wXKJyKw0GnkLNZVzoAgwHaDt?w=182&h=91&c=7&o=5&pid=1.7",
+    atributos: {
+        Attack:50,
+        Armor:35,
+        AttackSpeed:70
+    }
+}
+
+cartaSinged = {
+    nome:"Singed",
+    imagem:"https://th.bing.com/th/id/OIP.ur1ZRrFaqAPKrAy2tW2OtgHaEX?w=262&h=180&c=7&o=5&pid=1.7",
+    atributos: {
+        Attack:35,
+        Armor:55,
+        AttackSpeed:15,
+    }
+}
+
+cartaAphelios = {
+    nome:"Aphelios",
+    imagem:"https://th.bing.com/th/id/OIP.mOBsertx1YSZ9SbbmlcgBQHaEX?w=290&h=180&c=7&o=5&pid=1.7",
+    atributos: {
+        Attack:40,
+        Armor:10,
+        AttackSpeed:50
+    }
+}
+
 cartaEkko = {
     nome:"Ekko",
     imagem:"https://th.bing.com/th/id/OIP.EW2dPPKMlAtX8d09IudRYAHaEK?w=315&h=180&c=7&o=5&pid=1.7",
@@ -46,8 +87,7 @@ cartaMissFortune = {
 
 var cartaMaquina
 var cartaJogador
-var cartas = [cartaMasterYi, cartaEkko, cartaGaren, cartaMissFortune]
-              //0            1          2
+var cartas = [cartaMasterYi, cartaEkko, cartaGaren, cartaMissFortune, cartaAphelios, cartaSinged, cartaWukong, cartaThresh]
 
 //Funçao Atualizar Placar
 var pontosJogador = 0
